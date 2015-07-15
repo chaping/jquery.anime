@@ -25,6 +25,8 @@ Just include `jquery.js`(1.6+) and `jquery.anime.js` in your page,then select th
 $('#demo').anime('fadeIn', '1s', 'ease-out');
 </script>
 ```
+# Demo
+There are some demos here [http://chaping.github.io/jquery-anime/](http://chaping.github.io/jquery-anime/)
 
 # Documentation
 ## anime()
