@@ -148,6 +148,9 @@ $('#demo').anime({
 }, '1s');
 ```
 
+# License
+Licensed under the MIT license.
+
 
 
 
