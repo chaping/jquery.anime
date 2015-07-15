@@ -1,0 +1,18 @@
+html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0; font:13px/1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";color:#333;background-color:#fff}
+a{color:#4078c0;text-decoration:none}
+a:hover,a:active{text-decoration:underline}
+h1,h2,h3,h4,h5,h6{margin-top:15px;margin-bottom:15px;line-height:1.1}h1{font-size:30px}h2{font-size:21px}h3{font-size:16px}h4{font-size:14px}h5{font-size:12px}h6{font-size:11px}small{font-size:90%}blockquote{margin:0}.lead{margin-bottom:30px;font-size:20px;font-weight:300;color:#555}.text-muted{color:#767676}.text-danger{color:#bd2c00}.text-emphasized{font-weight:bold;color:#333}ul,ol{padding:0;margin-top:0;margin-bottom:0}ol ol,ul ol{list-style-type:lower-roman}ul ul ol,ul ol ol,ol ul ol,ol ol ol{list-style-type:lower-alpha}dd{margin-left:0}tt,code{font-family:Consolas, "Liberation Mono", Menlo, Courier, monospace;font-size:12px}pre{margin-top:0;margin-bottom:0;font:12px Consolas, "Liberation Mono", Menlo, Courier, monospace}
+body{font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif; font-size: 16px; line-height: 1.6;}
+h1,h2{ border-bottom:1px solid #eee;}
+h1,h2,h3,h4,h5,h6{ padding-bottom: 0.4em; margin-bottom: 16px; }
+p{ margin-bottom: 16px;}
+pre{padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; background-color: #f7f7f7;border-radius: 3px;}
+pre code{display: inline; max-width: initial; padding: 0; margin: 0; overflow: initial; line-height: inherit; word-wrap: normal; background-color: transparent; border: 0; font-size: 100%; font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;}
+.wraper{ width: 900px; margin: 0 auto;}
+.demo-box{ padding: 5px; border: 0px solid #eee; margin-top: 16px; text-align: center; margin-bottom: 16px;}
+.demo{ display: inline-block; width: 50px; height: 50px; background: #0066CC; vertical-align: middle; margin-bottom: 5px; text-align: center; line-height: 50px; font-size: 20px; color: #fff; font-weight: bold;}
+.run{ padding-top: 10px; border-bottom: 1px solid #eee; padding-bottom: 20px; margin-bottom: 10px;}
+.run button{ cursor: pointer;}
+
+.fork{ position: fixed; right: 0; top: 0;}

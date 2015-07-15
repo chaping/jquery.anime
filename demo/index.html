@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>jquery.anime</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/animate.css">
+</head>
+<body>
+	<a href="#" class="fork"><img src="images/ForkMeOnGitHub.png" height="200"></a>
+	<div class="wraper">
+		<h1>jquery.anime Demos</h1>
+		<p>All animations in the demos are provided by <a href="https://github.com/daneden/animate.css" target="_blank">animate.css</a></p>
+		<h2>$.fn.anime()</h2>
+		
+		<!--demo1-->
+		<p><strong>#demo1</strong></p>
+		<div class="demo-box">
+			<span class="demo" id="demo1-a">a</span><br />
+			<span class="demo" id="demo1-b">b</span><br />
+			<span class="demo" id="demo1-c">c</span><br />
+			<span class="demo" id="demo1-d">d</span><br />
+			<span class="demo" id="demo1-e">e</span><br />
+			<span class="demo" id="demo1-f">f</span>
+		</div>
+		<pre><code>$('#demo1-a').anime('shake', '1s');
+$('#demo1-b').anime('shake', '1s', '1s');
+$('#demo1-c').anime('fadeInLeftBig', '1s', 'ease-out');
+$('#demo1-d').anime('fadeInLeftBig', '1s', 'ease-in');
+$('#demo1-e').anime('shake', '1s', 5);
+$('#demo1-f').anime('zoomOutUp', '1s', 6, 'alternate');
+</code></pre>
+		<div class="run"><button onclick="demo1();">Run</button></div>
+
+		<!--demo2-->
+		<p><strong>#demo2</strong></p>
+		<div class="demo-box">
+			<span class="demo" id="demo2-a">a</span><br />
+		</div>
+		<pre><code>$('#demo2-a').anime('shake', '2s', function(){
+	alert('done!');
+});
+</code></pre>
+		<div class="run"><button onclick="demo2();">Run</button></div>
+
+
+		<!--demo3-->
+		<p><strong>#demo3</strong></p>
+		<div class="demo-box">
+			<span class="demo" id="demo3-a">a</span>
+		</div>
+		<pre><code>$('#demo3').anime('shake', '1s', {
+	backgroundColor : '#' + (100 + Math.ceil(899 * Math.random())),
+	width : 50 + Math.ceil(200 * Math.random())
+});
+</code></pre>
+		<div class="run"><button onclick="demo3();">Run</button></div>
+
+
+		<!--demo4-->
+		<p><strong>#demo4</strong></p>
+		<div class="demo-box">
+			<span class="demo" id="demo4-a">a</span><br />
+			<span class="demo" id="demo4-b">b</span><br />
+			<span class="demo" id="demo4-c">c</span><br />
+			<span class="demo" id="demo4-d">d</span>
+		</div>
+		<pre><code>var callback = function(){
+	$(this).css('backgroundColor', 'red');
+}
+
+$('#demo4-a').anime('shake', '1s', '0.5s', 3, 'ease-out', 'alternate', callback);
+$('#demo4-b').anime('shake', 'ease-out', '1s', 3, '0.5s', 'alternate', callback);
+$('#demo4-c').anime('shake', 'alternate', '1s', 'ease-out', '0.5s', 3, callback);
+$('#demo4-d').anime('shake', callback, '1s', 3, '0.5s', 'alternate', 'ease-out');
+</code></pre>
+		<div class="run"><button onclick="demo4();">Run</button></div>
+		
+
+		<h2>$.fn.delay()</h2>
+		<p>We can use Anime with jQuery's delay() method</p>
+		<!--demo1-->
+		<p><strong>#demo5</strong></p>
+		<div class="demo-box">
+			<span class="demo" id="demo5-a">a</span><br />
+		</div>
+		<pre><code>$('#demo1-a').delay(1000).anime('shake', '1s');
+</code></pre>
+		<div class="run"><button onclick="demo5();">Run</button></div>
+
+		<h2>$.fn.then()</h2>
+		<!--demo1-->
+		<p><strong>#demo6</strong></p>
+		<div class="demo-box">
+			<span class="demo" id="demo6-a">a</span><br />
+		</div>
+		<pre><code>$('#demo6-a').anime('shake', '1s').then().anime('bounce', '1s').then().anime('tada', '1s');	
+</code></pre>
+		<div class="run"><button onclick="demo6();">Run</button></div>
+
+		<p><strong>#demo7</strong></p>
+		<div class="demo-box">
+			<span class="demo" id="demo7-a">a</span><br />
+		</div>
+		<pre><code>var animations ='bounce,flash,pulse,rubberBand,shake,swing,tada,wobble,bounceIn,bounceOut,bounceInDown,bounceOutDown,bounceInLeft,bounceOutLeft,bounceInRight,bounceOutRight,bounceInUp,bounceOutUp,fadeIn,fadeOut,fadeInDown,fadeOutDown,fadeInDownBig,fadeOutDownBig,fadeInLeft,fadeOutLeft,fadeInLeftBig,fadeOutLeftBig,fadeInRight,fadeOutRight,fadeInRightBig,fadeOutRightBig,fadeInUp,fadeOutUp,fadeInUpBig,fadeOutUpBig,flip,flipInX,flipOutX,flipInY,flipOutY,lightSpeedIn,lightSpeedOut,rotateIn,rotateOut,rotateInDownLeft,rotateOutDownLeft,rotateInDownRight,rotateOutDownRight,rotateInUpLeft,rotateOutUpLeft,rotateInUpRight,rotateOutUpRight,hinge,rollIn,rollOut,zoomIn,zoomOut,zoomInDown,zoomOutDown,zoomInLeft,zoomOutLeft,zoomInRight,zoomOutRight,zoomInUp,zoomOutUp,slideInDown,slideOutDown,slideInLeft,slideOutLeft,slideInRight,slideOutRight,slideInUp,slideOutUp';
+
+var $el = $('#demo7-a');
+animations.replace(/\w+/g,function(name){
+	$el = $el.anime(name,'1s','both').then();
+});
+</code></pre>
+		<div class="run"><button onclick="demo7();">Run</button></div>
+
+
+		<h2>$.fn.clearQueue()</h2>
+		<p>You can use jQuery's clearQueue() method to cancel the animation that not yet begun in the queue.</p>
+		<!--demo1-->
+		<p><strong>#demo8</strong></p>
+		<div class="demo-box">
+			<span class="demo" id="demo8-a">a</span><br />
+			<span class="demo" id="demo8-b">b</span>
+		</div>
+		<pre><code>$('#demo8-a').delay(3000).anime('shake', '1s');
+$('#demo8-b').anime('shake', '3s').then().anime('bounce', '3s');
+
+setTimeout(function(){
+	$('#demo8-a').clearQueue();
+	$('#demo8-b').clearQueue();
+}, 2000);	
+</code></pre>
+		<div class="run"><button onclick="demo8();">Run</button></div>
+
+		<h2>Apply same animations on the same element</h2>
+		<p>If you want to apply a same aniamtion on the same element,you can use anime('none') and then use delay() to delay a small time.</p>
+		<!--demo1-->
+		<p><strong>#demo9</strong></p>
+		<div class="demo-box">
+			<span class="demo" id="demo9-a">a</span><br />
+		</div>
+		<pre><code>$('#demo9-a').anime('wobble', '4s');
+setTimeout(function(){
+	$('#demo9-a').anime('none').delay(10).anime('wobble', '4s');
+}, 2000);
+</code></pre>
+		<div class="run"><button onclick="demo9();">Run</button></div>
+
+		<h2>$.keyframes()</h2>
+		<!--demo1-->
+		<p><strong>#demo10</strong></p>
+		<div class="demo-box">
+			<span class="demo" id="demo10-a">a</span><br />
+			<span class="demo" id="demo10-b">b</span><br />
+			<span class="demo" id="demo10-c">c</span>
+		</div>
+		<pre><code>$.keyframes('myAnimation1',{
+	'0%' : { width : '50px'},
+	'100%' : { width : '100px'}
+});
+$.keyframes({
+	'name' : 'myAnimation2',
+	'0%' : { width : '50px'},
+	'100%' : { width : '100px'}
+});
+var myAnimation3 = $.keyframes({
+	'0%' : { width : '50px'},
+	'100%' : { width : '100px'}
+});
+
+$('#demo10-a').anime('myAnimation1', '1s', 'ease-out');
+$('#demo10-b').anime('myAnimation2', '1s', 'ease-out');
+$('#demo10-c').anime(myAnimation3, '1s', 'ease-out');
+</code></pre>
+		<div class="run"><button onclick="demo10();">Run</button></div>
+
+		<p><strong>#demo11</strong></p>
+		<div class="demo-box">
+			<span class="demo" id="demo11-a">a</span><br />
+			<span class="demo" id="demo11-b">b</span><br />
+			<span class="demo" id="demo11-c">c</span>
+		</div>
+		<pre><code>$.keyframes('rotate',{
+	'0%' : { rotate:0},
+	'100%' : { rotate:360}
+});
+$.keyframes('translate',{
+	'0%' : { x:0, y:0},
+	'100%' : { x:100, y:100}
+});
+$.keyframes('composite',{
+	'0%' : { rotate:0, scale:1, translate:'0,0'},
+	'100%' : { rotate:360, scale:2, translate:'100px,100px'}
+});
+
+$('#demo11-a').anime('rotate', '2s', 'ease-out', 5);
+$('#demo11-b').anime('translate', '2s', 'ease-out', 5);
+$('#demo11-c').anime('composite', '2s', 'ease-out', 5);
+</code></pre>
+		<div class="run"><button onclick="demo11();">Run</button></div>
+
+		<p><strong>#demo12</strong></p>
+		<div class="demo-box">
+			<span class="demo" id="demo12-a">a</span><br />
+		</div>
+		<pre><code>$('#demo12-a').anime({
+	'0%' : { rotate:0},
+	'100%' : { rotate:360}
+}, '2s', 'ease-out');
+</code></pre>
+		<div class="run"><button onclick="demo12();">Run</button></div>
+
+	</div>
+	<script src="js/jquery-2.1.1.min.js"></script>
+	<script src="js/jquery.anime.js"></script>
+	<script>
+	/**
+		For demonstrating, I use anime('none') and delay(10) to make the animation can be replayed. 
+	*/
+	function demo1(){
+		$('#demo1-a').anime('none').delay(10).anime('shake', '1s');
+		$('#demo1-b').anime('none').delay(10).anime('shake', '1s', '1.5s');
+		$('#demo1-c').anime('none').delay(10).anime('fadeInLeftBig', '1s', 'ease-out');
+		$('#demo1-d').anime('none').delay(10).anime('fadeInLeftBig', '1s', 'ease-in');
+		$('#demo1-e').anime('none').delay(10).anime('shake', '1s', 5);
+		$('#demo1-f').anime('none').delay(10).anime('zoomOutUp', '1s', 6, 'alternate');
+	}
+	function demo2(){
+		$('#demo2-a').anime('none').delay(10).anime('shake', '1s', function(){
+			alert('done!');
+		});
+	}
+	function demo3(){
+		$('#demo3-a').anime('none').delay(10).anime('shake', '1s', {
+			backgroundColor : '#' + (100 + Math.ceil(899 * Math.random())),
+			width : 50 + Math.ceil(200 * Math.random())
+		});
+	}
+	function demo4(){
+		$('#demo4-a').anime('none').delay(10).anime('shake', '1s', '0.5s', 3, 'ease-out', 'alternate', function(){
+			$(this).css('backgroundColor', 'red');
+		},{ backgroundColor: '#0066CC'});
+		$('#demo4-b').anime('none').delay(10).anime('shake', 'ease-out','1s', 3, '0.5s', 'alternate', function(){
+			$(this).css('backgroundColor', 'red');
+		},{ backgroundColor: '#0066CC'});
+		$('#demo4-c').anime('none').delay(10).anime('shake', 'alternate', '1s', 'ease-out', '0.5s', 3, function(){
+			$(this).css('backgroundColor', 'red');
+		}, { backgroundColor: '#0066CC'});
+		$('#demo4-d').anime('none').delay(10).anime('shake', function(){
+			$(this).css('backgroundColor', 'red');
+		} ,'1s', 3, '0.5s', 'alternate', 'ease-out' ,{ backgroundColor: '#0066CC'});
+	}
+	function demo5(){
+		$('#demo5-a').anime('none').delay(1000).anime('shake', '1s');
+	}
+	function demo6(){
+		$('#demo6-a').anime('shake', '1s').then()
+					 .anime('bounce', '1s').then()
+					 .anime('tada', '1s').then()
+	}
+	function demo7(){
+		var animations ='bounce,flash,pulse,rubberBand,shake,swing,tada,wobble,bounceIn,bounceOut,bounceInDown,bounceOutDown,bounceInLeft,bounceOutLeft,bounceInRight,bounceOutRight,bounceInUp,bounceOutUp,fadeIn,fadeOut,fadeInDown,fadeOutDown,fadeInDownBig,fadeOutDownBig,fadeInLeft,fadeOutLeft,fadeInLeftBig,fadeOutLeftBig,fadeInRight,fadeOutRight,fadeInRightBig,fadeOutRightBig,fadeInUp,fadeOutUp,fadeInUpBig,fadeOutUpBig,flip,flipInX,flipOutX,flipInY,flipOutY,lightSpeedIn,lightSpeedOut,rotateIn,rotateOut,rotateInDownLeft,rotateOutDownLeft,rotateInDownRight,rotateOutDownRight,rotateInUpLeft,rotateOutUpLeft,rotateInUpRight,rotateOutUpRight,hinge,rollIn,rollOut,zoomIn,zoomOut,zoomInDown,zoomOutDown,zoomInLeft,zoomOutLeft,zoomInRight,zoomOutRight,zoomInUp,zoomOutUp,slideInDown,slideOutDown,slideInLeft,slideOutLeft,slideInRight,slideOutRight,slideInUp,slideOutUp';
+
+		var $el = $('#demo7-a');
+		$el = $el.clearQueue().anime('none').delay(10);
+		animations.replace(/\w+/g,function(name){
+			$el = $el.anime(name,'1s','both').then();
+		});
+	}
+	function demo8(){
+		$('#demo8-a').delay(3000).anime('shake', '1s');
+		$('#demo8-b').anime('none').delay(10).anime('shake', '3s').then().anime('bounce', '3s');
+		setTimeout(function(){
+			$('#demo8-a').clearQueue();
+			$('#demo8-b').clearQueue();
+		}, 2000);	
+	}
+	function demo9(){
+		$('#demo9-a').anime('none').delay(10).anime('wobble', '4s');
+		setTimeout(function(){
+			$('#demo9-a').anime('none').delay(10).anime('wobble', '4s');
+		}, 2000);
+	}
+	function demo10(){
+		$.keyframes('myAnimation1',{
+			'0%' : { width : '50px'},
+			'100%' : { width : '100px'}
+		});
+		$.keyframes({
+			'name' : 'myAnimation2',
+			'0%' : { width : '50px'},
+			'100%' : { width : '100px'}
+		});
+		var myAnimation3 = $.keyframes({
+			'0%' : { width : '50px'},
+			'100%' : { width : '100px'}
+		});
+		$('#demo10-a').anime('none').delay(10).anime('myAnimation1', '1s', 'ease-out');
+		$('#demo10-b').anime('none').delay(10).anime('myAnimation2', '1s', 'ease-out');
+		$('#demo10-c').anime('none').delay(10).anime(myAnimation3, '1s', 'ease-out');
+	}
+	function demo11(){
+		$.keyframes('rotate',{
+			'0%' : { rotate:0},
+			'100%' : { rotate:360}
+		});
+		$.keyframes('translate',{
+			'0%' : { x:0, y:0},
+			'100%' : { x:100, y:100}
+		});
+		$.keyframes('composite',{
+			'0%' : { rotate:0, scale:1, translate:'0,0'},
+			'100%' : { rotate:360, scale:2, translate:'100px,100px'}
+		});
+		$('#demo11-a').anime('none').delay(10).anime('rotate', '2s', 'ease-out', 5);
+		$('#demo11-b').anime('none').delay(10).anime('translate', '2s', 'ease-out', 5);
+		$('#demo11-c').anime('none').delay(10).anime('composite', '2s', 'ease-out', 5);
+	}
+	function demo12(){
+		$('#demo12-a').anime('none').delay(10).anime({
+			'0%' : { rotate:0},
+			'100%' : { rotate:360}
+		}, '2s', 'ease-out');
+	}
+	</script>
+</body>
+</html>
